@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FIAPMinhasReceitas.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,41 @@ namespace FIAPMinhasReceitas.UWP.Pages
         public ReceitasPage()
         {
             this.InitializeComponent();
+            this.Loaded += ReceitasPage_Loaded;
         }
+
+        private void ReceitasPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<Receita> receitas = CarregarReceitasMock();
+
+            lstReceitas.ItemsSource = receitas;
+        }
+
+        private static List<Receita> CarregarReceitasMock()
+        {
+            List<Receita> receitas = new List<Receita>();
+
+            receitas.AddRange(
+                new Receita[]
+                {
+            new Receita
+            {
+                Categoria = Categoria.Bebida,
+                Instrucoes = "",
+                Titulo = "Limonada",
+                MinutosPreparo = 10
+            },
+            new Receita
+            {
+                Categoria = Categoria.Doce,
+                Instrucoes = "",
+                Titulo = "Churros",
+                MinutosPreparo = 30
+            }
+                }
+            );
+            return receitas;
+        }
+
     }
 }

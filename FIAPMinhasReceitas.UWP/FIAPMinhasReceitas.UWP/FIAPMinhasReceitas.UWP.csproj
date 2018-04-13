@@ -152,6 +152,12 @@
       <Version>6.0.8</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FIAPMinhasReceitas.Models\FIAPMinhasReceitas.Models.csproj">
+      <Project>{d98fd2f5-0bde-446a-a97b-565440697f06}</Project>
+      <Name>FIAPMinhasReceitas.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

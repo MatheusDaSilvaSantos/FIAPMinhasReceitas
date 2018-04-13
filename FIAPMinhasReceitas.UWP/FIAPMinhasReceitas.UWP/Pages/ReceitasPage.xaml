@@ -8,6 +8,9 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="Receitas" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <StackPanel Margin="15">
+            <ListView Name="lstReceitas" DisplayMemberPath="Titulo">
+            </ListView>
+        </StackPanel>
     </Grid>
 </Page>
