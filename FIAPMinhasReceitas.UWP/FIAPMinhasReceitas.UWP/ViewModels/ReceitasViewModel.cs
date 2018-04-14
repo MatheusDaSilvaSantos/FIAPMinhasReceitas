@@ -33,7 +33,8 @@ namespace FIAPMinhasReceitas.UWP.ViewModels
                 Categoria = Categoria.Bebida,
                 Instrucoes = "",
                 Titulo = "Limonada",
-                MinutosPreparo = 10
+                MinutosPreparo = 10,
+                Preco = 10
             });
 
             _receitas.Add(
@@ -42,7 +43,8 @@ namespace FIAPMinhasReceitas.UWP.ViewModels
                 Categoria = Categoria.Doce,
                 Instrucoes = "",
                 Titulo = "Churros",
-                MinutosPreparo = 30
+                MinutosPreparo = 30,
+                Preco = 25
             });
         }
 
