@@ -15,7 +15,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Margin="15">
-            <ListView Name="lstReceitas" ItemsSource="{x:Bind ViewModel.Receitas, Mode=OneWay}">
+            <ListView Name="lstReceitas" ItemsSource="{x:Bind ViewModel.Receitas, Mode=OneWay}" SelectionChanged="{x:Bind ViewModel.ListaReceitas_SelectionChanged}">
                 <ListView.HeaderTemplate>
                     <DataTemplate>
                         <Grid>

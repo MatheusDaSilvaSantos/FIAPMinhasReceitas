@@ -1,4 +1,5 @@
 ﻿using FIAPMinhasReceitas.UWP.Pages;
+using FIAPMinhasReceitas.UWP.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,21 +25,23 @@ namespace FIAPMinhasReceitas.UWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
         public MainPage()
         {
             this.InitializeComponent();
 
-            SystemNavigationManager.GetForCurrentView().BackRequested += On_BackRequested;
+            NavigationService.Frame = ContentFrame;
+            NavigationService.Navigated += On_Navigated;
         }
 
         private void NavView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
             NavView.Header = args.InvokedItem is NavigationViewItem ?
-                        ((NavigationViewItem)args.InvokedItem).Content : (string)args.InvokedItem;
+                ((NavigationViewItem)args.InvokedItem).Content : (string)args.InvokedItem;
 
             if (args.IsSettingsInvoked)
             {
-                ContentFrame.Navigate(typeof(ConfiguracoesPage));
+                NavigationService.Navigate<ConfiguracoesPage>();
             }
             else
             {
@@ -52,22 +55,21 @@ namespace FIAPMinhasReceitas.UWP
             switch (item.Tag)
             {
                 case "receitas":
-                    ContentFrame.Navigate(typeof(ReceitasPage));
+                    NavigationService.Navigate<ReceitasPage>();
                     break;
                 case "timer":
-                    ContentFrame.Navigate(typeof(TimerPage));
+                    NavigationService.Navigate<TimerPage>();
                     break;
             }
         }
 
-        private void On_BackRequested(object sender, BackRequestedEventArgs e)
+        private void NovaReceitaAppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!e.Handled && ContentFrame.CanGoBack)
-            {
-                ContentFrame.GoBack();
-                e.Handled = true;
-            }
+            NavView.Header = "Nova Receita";
+
+            NavigationService.Navigate<EditarReceitaPage>();
         }
+
 
         private void On_Navigated(object sender, NavigationEventArgs e)
         {
@@ -83,7 +85,8 @@ namespace FIAPMinhasReceitas.UWP
                 Dictionary<Type, string> lookup = new Dictionary<Type, string>()
                 {
                     {typeof(ReceitasPage), "receitas"},
-                    {typeof(TimerPage), "timer"}
+                    {typeof(TimerPage), "timer"},
+                    {typeof(EditarReceitaPage), ""},
                 };
 
                 String stringTag = lookup[ContentFrame.SourcePageType];
