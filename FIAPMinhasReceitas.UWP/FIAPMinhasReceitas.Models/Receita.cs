@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FIAPMinhasReceitas.Models.Abstracts;
+using System;
 
 namespace FIAPMinhasReceitas.Models
 {
@@ -9,12 +10,41 @@ namespace FIAPMinhasReceitas.Models
         Salgado
     }
 
-    public class Receita
+    public class Receita : NotifyableClass
     {
-        public string Titulo { get; set; }
-        public Categoria Categoria { get; set; }
-        public int MinutosPreparo { get; set; }
-        public string Instrucoes { get; set; }
-        public decimal Preco { get; set; }
+        private string _titulo;
+        public string Titulo
+        {
+            get { return _titulo; }
+            set { Set(ref _titulo, value); }
+        }
+
+        private Categoria _categoria;
+        public Categoria Categoria
+        {
+            get { return _categoria; }
+            set { Set(ref _categoria, value); }
+        }
+
+        private int _minutosPreparo;
+        public int MinutosPreparo
+        {
+            get { return _minutosPreparo; }
+            set { Set(ref _minutosPreparo, value); }
+        }
+
+        private string _instrucoes;
+        public string Instrucoes
+        {
+            get { return _instrucoes; }
+            set { Set(ref _instrucoes, value); }
+        }
+
+        private decimal _preco;
+        public decimal Preco
+        {
+            get { return _preco; }
+            set { Set(ref _preco, value); }
+        }
     }
 }
