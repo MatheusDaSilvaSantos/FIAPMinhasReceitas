@@ -12,18 +12,21 @@
 
     <UserControl.Resources>
         <cvt:DecimalToStringPrecoConverter x:Key="DecimalToStringPreco" />
+        <cvt:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSource"/>
     </UserControl.Resources>
     
     <Grid Margin="12">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="{x:Bind Receita.Titulo, Mode=OneWay}" />
-        <TextBlock Text="{x:Bind Receita.Categoria, Mode=OneWay}" Grid.Column="1" />
-        <TextBlock Text="{x:Bind Receita.Preco, Mode=OneWay, Converter={StaticResource DecimalToStringPreco}}" Grid.Column="2" />
-        <TextBlock Text="{x:Bind Receita.MinutosPreparo, Mode=OneWay}" Grid.Column="3" HorizontalAlignment="Right" />
+        <Image Name="imgReceita" Height="30" Source="{x:Bind Receita.ImagemBytes, Mode=OneWay, Converter={StaticResource ByteArrayToImageSource}}"/>
+        <TextBlock x:Name="lblTitulo" Text="{x:Bind Receita.Titulo, Mode=OneWay}" Grid.Column="1"/>
+        <TextBlock Text="{x:Bind Receita.Categoria, Mode=OneWay}" Grid.Column="2" />
+        <TextBlock Text="{x:Bind Receita.Preco, Mode=OneWay, Converter={StaticResource DecimalToStringPreco}}" Grid.Column="3" />
+        <TextBlock Text="{x:Bind Receita.MinutosPreparo, Mode=OneWay}" Grid.Column="4" HorizontalAlignment="Right" />
     </Grid>
 </UserControl>
