@@ -25,7 +25,7 @@ namespace FIAPMinhasReceitas.UWP.Services
 
             toastXml.LoadXml(toastXmlString);
 
-            var toastTime = DateTime.Today.Add(timeSpan);
+            var toastTime = DateTime.Now.Add(timeSpan);
 
             var toast = new ScheduledToastNotification(toastXml, toastTime);
 

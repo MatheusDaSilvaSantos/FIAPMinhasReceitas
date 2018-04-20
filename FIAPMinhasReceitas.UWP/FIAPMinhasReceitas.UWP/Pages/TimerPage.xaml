@@ -9,7 +9,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Margin="12">
-            <TimePicker Header="Tempo do Timer" Time="{x:Bind ViewModel.TimeNotificacao, Mode=TwoWay}" Margin="0,12" />
+            <TimePicker ClockIdentifier="24HourClock" Header="Tempo do Timer" Time="{x:Bind ViewModel.TimeNotificacao, Mode=TwoWay}" Margin="0,12" />
             <Button Content="Ativar" Click="{x:Bind ViewModel.AtivarTimer}" />
         </StackPanel>
     </Grid>
