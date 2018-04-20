@@ -8,6 +8,9 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="Timer" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <StackPanel Margin="12">
+            <TimePicker Header="Tempo do Timer" Time="{x:Bind ViewModel.TimeNotificacao, Mode=TwoWay}" Margin="0,12" />
+            <Button Content="Ativar" Click="{x:Bind ViewModel.AtivarTimer}" />
+        </StackPanel>
     </Grid>
 </Page>

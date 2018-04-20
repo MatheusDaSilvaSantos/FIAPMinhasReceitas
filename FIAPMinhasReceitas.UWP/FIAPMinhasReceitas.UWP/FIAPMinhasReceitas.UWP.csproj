@@ -123,6 +123,7 @@
     <Compile Include="Repository\MockReceitaRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\StorageService.cs" />
     <Compile Include="UserControls\ReceitasListUserControl.xaml.cs">
       <DependentUpon>ReceitasListUserControl.xaml</DependentUpon>
@@ -130,6 +131,7 @@
     <Compile Include="ViewModels\ConfiguracoesViewModel.cs" />
     <Compile Include="ViewModels\EditarReceitaViewModel.cs" />
     <Compile Include="ViewModels\ReceitasViewModel.cs" />
+    <Compile Include="ViewModels\TimerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

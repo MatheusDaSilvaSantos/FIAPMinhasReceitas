@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FIAPMinhasReceitas.UWP.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,8 @@ namespace FIAPMinhasReceitas.UWP.Pages
     /// </summary>
     public sealed partial class TimerPage : Page
     {
+        public TimerViewModel ViewModel { get; } = new TimerViewModel();
+
         public TimerPage()
         {
             this.InitializeComponent();
