@@ -34,16 +34,32 @@ namespace FIAPMinhasReceitas.UWP.Pages
         {
             object parameter = e.Parameter;
 
-            if (parameter == null)
+            if (parameter == null || parameter is Guid)
             {
-                parameter = Guid.NewGuid();
+                if (parameter == null)
+                {
+                    parameter = Guid.NewGuid();
+                }
+
+                ViewModel.CarregarReceita((Guid)parameter);
             }
-            else if (!(parameter is Guid))
+            else if (parameter is string)
+            {
+                WwwFormUrlDecoder uriDecoder = new WwwFormUrlDecoder(parameter.ToString());
+                var rule = uriDecoder.GetFirstValueByName("rule");
+                var tituloReceita = uriDecoder.GetFirstValueByName("tituloReceita");
+
+                ViewModel.CarregarReceita(Guid.NewGuid());
+
+                if (!string.IsNullOrWhiteSpace(rule))
+                {
+                    ViewModel.Receita.Titulo = tituloReceita;
+                }
+            }
+            else
             {
                 throw new ArgumentException();
             }
-
-            ViewModel.CarregarReceita((Guid)parameter);
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)

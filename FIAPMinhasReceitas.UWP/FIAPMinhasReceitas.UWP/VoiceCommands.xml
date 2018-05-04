@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
+  <CommandSet xml:lang="pt-BR" Name="MinhasReceitasCommandSet_pt-br">
+    <AppName>Minhas Receitas</AppName>
+    <Example> Adicionar nova receita </Example>
+
+    <Command Name="adicionarReceita">
+      <Example> Adicionar nova receita </Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> adicionar nova receita </ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> adicionar {tituloReceita} nas {builtin:AppName} </ListenFor>
+      <Feedback> Adicionando nova receita </Feedback>
+      <Navigate/>
+    </Command>
+
+    <PhraseTopic Label="tituloReceita" Scenario="Search" />
+
+  </CommandSet>
+</VoiceCommands>
